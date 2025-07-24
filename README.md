@@ -18,7 +18,26 @@ VK Segmentation Service — это сервис для хранения данн
 
 ## Запуск проекта
 
-1. **Создайте и активируйте виртуальное окружение (Python 3.11.5):**
+### Через Docker (рекомендуется)
+
+1. Соберите и запустите контейнер:
+   ```sh
+   docker-compose up --build
+   ```
+
+2. Примените миграции (один раз после первого запуска):
+   ```sh
+   docker-compose run web python manage.py migrate
+   ```
+
+3. Откройте браузер и перейдите по адресу:
+   [http://localhost:8000/api/](http://localhost:8000/api/)
+
+---
+
+### Альтернативно: Локальный запуск (без Docker)
+
+1. Создайте и активируйте виртуальное окружение (Python 3.11.5):
    ```sh
    python3.11 -m venv venv
    source venv/bin/activate        # Linux/Mac
@@ -28,23 +47,23 @@ VK Segmentation Service — это сервис для хранения данн
    source venv/Scripts/activate    # Windows (Git Bash)
    ```
 
-2. **Установите зависимости:**
+2. Установите зависимости:
    ```sh
    pip install -r requirements.txt
    ```
 
-3. **Примените миграции:**
+3. Примените миграции:
    ```sh
    python manage.py makemigrations
    python manage.py migrate
    ```
 
-4. **Запустите сервер:**
+4. Запустите сервер:
    ```sh
    python manage.py runserver
    ```
 
-5. **Откройте браузер и перейдите по адресу:**
+5. Откройте браузер и перейдите по адресу:
    [http://127.0.0.1:8000/api/](http://127.0.0.1:8000/api/)
 
 ---
